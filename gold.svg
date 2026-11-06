@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" font-family="Inter,'Segoe UI',Roboto,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b1d05"/><stop offset=".6" stop-color="#14100a"/><stop offset="1" stop-color="#08060f"/></linearGradient>
+    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f59e0b" stop-opacity="0"/><stop offset=".3" stop-color="#fbbf24"/><stop offset="1" stop-color="#fde68a"/></linearGradient>
+    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".28"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/></linearGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.4" fill="#fff" fill-opacity=".07"/></pattern>
+    <clipPath id="r"><rect width="1200" height="300" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1200" height="300" fill="url(#bg)"/><rect width="1200" height="300" fill="url(#dots)"/>
+    <text x="64" y="70" font-size="21" font-weight="700" fill="#fbbf24" letter-spacing="4">PROCHAIN PROJET · EN PRÉPARATION</text>
+    <text x="64" y="122" font-size="44" font-weight="700" fill="#fff" letter-spacing="-1">Prédire la volatilité de l'or</text>
+    <text x="64" y="168" font-size="25" fill="#d6d3d1">XAUUSD · Le machine learning bat-il GARCH(1,1) ?</text>
+    <text x="64" y="214" font-size="22" fill="#a8a29e">Ingestion et stockage sur AWS, modèle, API et tableau de bord</text>
+    <text x="64" y="262" font-size="17" fill="#78716c">Illustration : courbe générique, pas de données réelles</text>
+    <g transform="translate(620 0)">
+      <path d="M0 200 C40 120 70 230 110 150 S170 90 210 170 S270 250 310 120 S380 60 420 140 S490 210 540 90" fill="none" stroke="url(#ln)" stroke-width="5" stroke-linecap="round" stroke-dasharray="1400" stroke-dashoffset="1400">
+        <animate attributeName="stroke-dashoffset" values="1400;0;0;-1400" keyTimes="0;.45;.85;1" dur="7s" repeatCount="indefinite"/>
+      </path>
+      <path d="M0 200 C40 120 70 230 110 150 S170 90 210 170 S270 250 310 120 S380 60 420 140 S490 210 540 90 V300 H0 Z" fill="url(#fill)">
+        <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.45;.85;1" dur="7s" repeatCount="indefinite"/>
+      </path>
+      <circle r="8" fill="#fde68a"><animateMotion dur="7s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;.45;1" calcMode="linear" path="M0 200 C40 120 70 230 110 150 S170 90 210 170 S270 250 310 120 S380 60 420 140 S490 210 540 90"/>
+        <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.45;.46;1" dur="7s" repeatCount="indefinite"/></circle>
+    </g>
+  </g>
+</svg>

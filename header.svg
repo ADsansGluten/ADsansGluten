@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" font-family="Inter,'Segoe UI',Roboto,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1458"/><stop offset=".55" stop-color="#120a26"/><stop offset="1" stop-color="#08060f"/></linearGradient>
+    <linearGradient id="tx" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+    <filter id="blur" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="38"/></filter>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.4" fill="#fff" fill-opacity=".08"/></pattern>
+    <clipPath id="r"><rect width="1200" height="320" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1200" height="320" fill="url(#bg)"/>
+    <rect width="1200" height="320" fill="url(#dots)"/>
+    <circle r="120" fill="#7c3aed" fill-opacity=".55" filter="url(#blur)"><animate attributeName="cx" values="180;420;180" dur="9s" repeatCount="indefinite"/><animate attributeName="cy" values="60;220;60" dur="9s" repeatCount="indefinite"/></circle>
+    <circle r="110" fill="#0d9488" fill-opacity=".40" filter="url(#blur)"><animate attributeName="cx" values="1020;780;1020" dur="11s" repeatCount="indefinite"/><animate attributeName="cy" values="260;80;260" dur="11s" repeatCount="indefinite"/></circle>
+    <circle r="90" fill="#ec4899" fill-opacity=".28" filter="url(#blur)"><animate attributeName="cx" values="640;900;640" dur="13s" repeatCount="indefinite"/><animate attributeName="cy" values="300;120;300" dur="13s" repeatCount="indefinite"/></circle>
+    <text x="70" y="128" font-size="62" font-weight="700" fill="url(#tx)" letter-spacing="-1.5">Adrien Lavigne</text>
+    <text x="72" y="172" font-size="27" fill="#c4c4d4">Étudiant Data &amp; IA · Ynov Campus Sophia</text>
+    <g font-size="24" fill="#a78bfa" font-weight="600">
+      <text x="72" y="232" opacity="0">Je construis des projets cloud sur AWS<animate attributeName="opacity" values="0;1;1;0;0;0;0;0" keyTimes="0;.04;.30;.34;1;1;1;1" dur="12s" repeatCount="indefinite"/></text>
+      <text x="72" y="232" opacity="0">La finance, mon terrain d'apprentissage<animate attributeName="opacity" values="0;0;0;1;1;0;0;0" keyTimes="0;.33;.37;.41;.63;.67;1;1" dur="12s" repeatCount="indefinite"/></text>
+      <text x="72" y="232" opacity="0">Python · AWS · Data · IA<animate attributeName="opacity" values="0;0;0;0;0;1;1;0" keyTimes="0;.66;.70;.74;.80;.84;.96;1" dur="12s" repeatCount="indefinite"/></text>
+    </g>
+    <rect x="72" y="262" width="120" height="4" rx="2" fill="#a78bfa"><animate attributeName="width" values="40;260;40" dur="4s" repeatCount="indefinite"/></rect>
+  </g>
+</svg>
