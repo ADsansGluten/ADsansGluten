@@ -1,0 +1,29 @@
+name: Contributions des créatures
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Générer le calendrier
+        run: python scripts/generate_contributions.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+
+      - name: Enregistrer s'il y a des changements
+        run: |
+          git config user.name "ADsansGluten"
+          git config user.email "327972482+ADsansGluten@users.noreply.github.com"
+          git add contributions-creatures.svg
+          git diff --cached --quiet || git commit -m "chore: mise à jour du calendrier de contributions"
+          git push
