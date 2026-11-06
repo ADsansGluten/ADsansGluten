@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" font-family="Inter,'Segoe UI',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1458"/><stop offset=".6" stop-color="#120a26"/><stop offset="1" stop-color="#08060f"/></linearGradient>
+    <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.4" fill="#fff" fill-opacity=".07"/></pattern>
+    <linearGradient id="teal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0d9488"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#d97706"/></linearGradient>
+    <linearGradient id="viol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
+    <clipPath id="r"><rect width="1200" height="460" rx="24"/></clipPath>
+    <g id="eyes"><ellipse cx="-30" cy="0" rx="16" ry="20" fill="#0f172a"/><ellipse cx="30" cy="0" rx="16" ry="20" fill="#0f172a"/><circle cx="-25" cy="-7" r="6" fill="#fff"/><circle cx="35" cy="-7" r="6" fill="#fff"/></g>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="1200" height="460" fill="url(#bg)"/><rect width="1200" height="460" fill="url(#dots)"/>
+    <text x="600" y="58" text-anchor="middle" font-size="22" font-weight="700" fill="#a78bfa" letter-spacing="5">LA FAMILLE · CRÉATURES ORIGINALES</text>
+
+    <!-- Lambdon : cloud -->
+    <g transform="translate(220 0)">
+      <ellipse cx="0" cy="390" rx="90" ry="13" fill="#000" opacity=".4"/>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" dur="2.4s" repeatCount="indefinite"/>
+        <path d="M0 110 C 55 180 100 235 100 295 C 100 350 60 378 0 378 C -60 378 -100 350 -100 295 C -100 235 -55 180 0 110 Z" fill="url(#teal)" stroke="#99f6e4" stroke-width="4"/>
+        <path d="M-22 130 L-40 82 L-6 112 Z" fill="#c4b5fd"/><path d="M22 130 L40 82 L6 112 Z" fill="#c4b5fd"/>
+        <use href="#eyes" x="0" y="290"/>
+        <path d="M-16 328 q16 14 32 0" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+        <path d="M-6 190 q6 -20 12 0 M0 190 l-14 28 M0 190 l14 28" stroke="#ccfbf1" stroke-width="4" fill="none" stroke-linecap="round" opacity=".0"/>
+      </g>
+      <text x="0" y="425" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">Lambdon</text>
+      <text x="0" y="448" text-anchor="middle" font-size="17" fill="#99f6e4">type Cloud</text>
+    </g>
+
+    <!-- Orino : or -->
+    <g transform="translate(600 0)">
+      <ellipse cx="0" cy="390" rx="100" ry="13" fill="#000" opacity=".4"/>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" dur="2.8s" repeatCount="indefinite"/>
+        <path d="M-95 170 L95 170 L125 370 L-125 370 Z" fill="url(#gold)" stroke="#fef3c7" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M-95 170 L-70 130 L70 130 L95 170 Z" fill="#fef3c7" opacity=".9"/>
+        <use href="#eyes" x="0" y="275"/>
+        <path d="M-18 315 q18 16 36 0" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+        <text x="0" y="237" text-anchor="middle" font-size="40" font-weight="800" fill="#92400e" opacity=".55">Au</text>
+        <circle cx="-120" cy="260" r="20" fill="#fbbf24"/><circle cx="120" cy="260" r="20" fill="#fbbf24"/>
+        <circle cx="-120" cy="260" r="11" fill="none" stroke="#b45309" stroke-width="3"/><circle cx="120" cy="260" r="11" fill="none" stroke="#b45309" stroke-width="3"/>
+      </g>
+      <text x="0" y="425" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">Orino</text>
+      <text x="0" y="448" text-anchor="middle" font-size="17" fill="#fde68a">type Finance</text>
+    </g>
+
+    <!-- Datum : data -->
+    <g transform="translate(980 0)">
+      <ellipse cx="0" cy="390" rx="90" ry="13" fill="#000" opacity=".4"/>
+      <g><animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" dur="2.6s" repeatCount="indefinite"/>
+        <path d="M-90 170 V330 C-90 372 90 372 90 330 V170 Z" fill="url(#viol)" stroke="#ddd6fe" stroke-width="4"/>
+        <ellipse cx="0" cy="170" rx="90" ry="28" fill="#ddd6fe" stroke="#ddd6fe" stroke-width="4"/>
+        <ellipse cx="0" cy="170" rx="60" ry="16" fill="#7c3aed" opacity=".5"/>
+        <path d="M-90 230 C-90 262 90 262 90 230" fill="none" stroke="#ddd6fe" stroke-width="3" opacity=".55"/>
+        <use href="#eyes" x="0" y="290"/>
+        <path d="M-16 328 q16 14 32 0" fill="none" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+        <rect x="-5" y="110" width="10" height="38" rx="5" fill="#ddd6fe"/><circle cx="0" cy="104" r="12" fill="#22d3ee"><animate attributeName="opacity" values=".5;1;.5" dur="1.4s" repeatCount="indefinite"/></circle>
+      </g>
+      <text x="0" y="425" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">Datum</text>
+      <text x="0" y="448" text-anchor="middle" font-size="17" fill="#c4b5fd">type Data</text>
+    </g>
+  </g>
+</svg>
