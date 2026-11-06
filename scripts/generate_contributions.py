@@ -3,11 +3,11 @@
 Variables d'environnement : GITHUB_TOKEN, GITHUB_USER.
 Option --mock pour tester sans réseau.
 """
-import json, os, random, sys, urllib.request
+import datetime, json, os, random, sys, urllib.request
 
 QUERY = """
 query($login:String!){user(login:$login){contributionsCollection{contributionCalendar{
-weeks{contributionDays{weekday contributionLevel}}}}}}
+totalContributions weeks{contributionDays{weekday date contributionCount contributionLevel}}}}}}
 """
 LEVELS = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2, "THIRD_QUARTILE": 3, "FOURTH_QUARTILE": 4}
 
@@ -20,22 +20,26 @@ def fetch(user, token):
     )
     with urllib.request.urlopen(req, timeout=30) as r:
         data = json.load(r)
-    weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
-    grid = []
-    for w in weeks:
+    cal = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    grid, days = [], []
+    for w in cal["weeks"]:
         col = [None] * 7
         for d in w["contributionDays"]:
             col[d["weekday"]] = LEVELS.get(d["contributionLevel"], 0)
+            days.append((d["date"], d["contributionCount"]))
         grid.append(col)
-    return grid
+    limit = (datetime.date.today() - datetime.timedelta(days=30)).isoformat()
+    month = sum(n for dt, n in days if dt > limit)
+    return grid, {"year": cal["totalContributions"], "month": month}
 
 
 def mock():
     random.seed(3)
-    return [[random.choices(range(5), [30, 25, 20, 15, 10])[0] for _ in range(7)] for _ in range(53)]
+    grid = [[random.choices(range(5), [30, 25, 20, 15, 10])[0] for _ in range(7)] for _ in range(53)]
+    return grid, {"year": 119, "month": 45}
 
 
-def build(grid):
+def build(grid, stats):
     W, H = 1200, 300
     cell, gap = 18, 4
     pitch = cell + gap
@@ -88,7 +92,9 @@ def build(grid):
 <clipPath id="r"><rect width="{W}" height="{H}" rx="24"/></clipPath></defs>
 <g clip-path="url(#r)"><rect width="{W}" height="{H}" fill="url(#bg)"/>
 <text x="{x0}" y="52" font-size="21" font-weight="700" fill="#a78bfa" letter-spacing="4">LES CRÉATURES CROQUENT MES CONTRIBUTIONS</text>
-<text x="{x0}" y="78" font-size="16" fill="#a8a29e">Mes vraies contributions GitHub des 12 derniers mois, mises à jour chaque nuit</text>
+<text x="{x0}" y="78" font-size="16" fill="#a8a29e">Mes vraies contributions GitHub, mises à jour chaque nuit</text>
+<g text-anchor="end" font-weight="700"><text x="{W - x0}" y="52" font-size="30" fill="#39d353">{stats["year"]}<tspan font-size="16" font-weight="500" fill="#a8a29e"> sur 12 mois</tspan></text>
+<text x="{W - x0}" y="80" font-size="22" fill="#a78bfa">{stats["month"]}<tspan font-size="16" font-weight="500" fill="#a8a29e"> sur 30 jours</tspan></text></g>
 {''.join(cells)}
 {''.join(creat)}
 </g></svg>'''
@@ -96,10 +102,10 @@ def build(grid):
 
 if __name__ == "__main__":
     if "--mock" in sys.argv:
-        grid = mock()
+        grid, stats = mock()
     else:
-        grid = fetch(os.environ["GITHUB_USER"], os.environ["GITHUB_TOKEN"])
+        grid, stats = fetch(os.environ["GITHUB_USER"], os.environ["GITHUB_TOKEN"])
     out = sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else "contributions-creatures.svg"
     with open(out, "w", encoding="utf-8") as f:
-        f.write(build(grid))
+        f.write(build(grid, stats))
     print("écrit", out)
