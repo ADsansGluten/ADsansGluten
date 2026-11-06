@@ -55,15 +55,12 @@ def build(grid):
             lane = [ln for ln in lanes if r in ln[1]][0]
             spd, off = lane[2], lane[3]
             x, y = x0 + c * pitch, y0 + r * pitch
-            if lvl == 0:
-                cells.append(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="4" fill="{greens[0]}"/>')
-                continue
             t = off + (c * pitch + cell / 2 + 30) / spd
             k = min(t / DUR, 0.84)
             k2 = min(k + 0.012, 0.85)
             cells.append(
                 f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="4" fill="{greens[lvl]}">'
-                f'<animate attributeName="opacity" values="1;1;.08;.08;1" keyTimes="0;{k:.4f};{k2:.4f};0.90;0.96" dur="{DUR}s" repeatCount="indefinite"/></rect>')
+                f'<animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;{k:.4f};{k2:.4f};0.90;0.96;1" dur="{DUR}s" repeatCount="indefinite"/></rect>')
     eyes = ('<g id="eyes"><ellipse cx="-30" cy="0" rx="16" ry="20" fill="#0f172a"/><ellipse cx="30" cy="0" rx="16" ry="20" fill="#0f172a"/>'
             '<circle cx="-25" cy="-7" r="6" fill="#fff"/><circle cx="35" cy="-7" r="6" fill="#fff"/></g>')
     minis = {
